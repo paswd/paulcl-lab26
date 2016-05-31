@@ -109,7 +109,7 @@ LinearlistElement *linearlist_get_element_by_position(Linearlist *list, int pos)
 {
 	if (pos >= list->size || pos < 0) {
 		printf("Element is out of range\n");
-		return LINEARLIST_ERROR;
+		return NULL;
 	}
 	LinearlistElement *tmp = list->first;
 	for (int i = 0; i < pos && tmp != NULL; i++) {

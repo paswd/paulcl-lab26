@@ -6,6 +6,19 @@
 
 #define LINEARLIST_ERROR	-90000000000000
 
+int linearlist_get_insert_position(Linearlist *list, Item value)
+{
+	int pos = 0;
+	LinearlistElement *el = linearlist_get_first(list);
+	while (el != NULL) {
+		if (linearlist_get_value(el) >= value)
+			break;
+		pos++;
+		el = linearlist_get_next(el);
+	}
+	return pos;
+}
+
 void linearlist_sort(Linearlist *list)
 {
 	Linearlist *nw = linearlist_create();
@@ -14,15 +27,8 @@ void linearlist_sort(Linearlist *list)
 			linearlist_push(nw, 0, linearlist_get_value(linearlist_get_element_by_position(list, i)));
 			continue;
 		}
-		int pos = 0;
 		Item value = linearlist_get_value(linearlist_get_element_by_position(list, i));
-		LinearlistElement *el = linearlist_get_first(nw);
-		while (el != NULL) {
-			if (linearlist_get_value(el) >= value)
-				break;
-			pos++;
-			el = linearlist_get_next(el);
-		}
+		int pos = linearlist_get_insert_position(list, value);
 		linearlist_push(nw, pos, value);
 	}
 	linearlist_clear(list);
