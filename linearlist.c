@@ -107,6 +107,10 @@ LinearlistElement *linearlist_get_first(Linearlist *list)
 }
 LinearlistElement *linearlist_get_element_by_position(Linearlist *list, int pos)
 {
+	if (pos >= list->size) {
+		printf("Element is out of range\n");
+		return LINEARLIST_ERROR;
+	}
 	LinearlistElement *tmp = list->first;
 	for (int i = 0; i < pos && tmp != NULL; i++) {
 		tmp = tmp->next;
@@ -134,7 +138,7 @@ int linearlist_get_size(Linearlist *list)
 {
 	return list->size;
 }
-int sz(Linearlist *list)
+/*int sz(Linearlist *list)
 {
 	LinearlistElement *tmp = list->first;
 	int cnt = 0;
@@ -143,7 +147,7 @@ int sz(Linearlist *list)
 		tmp = tmp->next;
 	}
 	return cnt;
-}
+}*/
 
 void linearlist_clear(Linearlist *list)
 {

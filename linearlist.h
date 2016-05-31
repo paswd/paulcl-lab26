@@ -19,7 +19,7 @@ Item linearlist_get_value(LinearlistElement *element);
 LinearlistElement *linearlist_get_next(LinearlistElement *element);
 bool linearlist_is_empty(Linearlist *list);
 int linearlist_get_size(Linearlist *list);
-int sz(Linearlist *list);
+//int sz(Linearlist *list);
 void linearlist_clear(Linearlist *list);
 
 #endif

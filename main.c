@@ -73,8 +73,8 @@ int main(void)
 				linearlist_print(linearlist);
 				break;
 			case 'l':
-				//printf("%d\n", linearlist_get_size(linearlist));
-				printf("%d\n", sz(linearlist));
+				printf("%d\n", linearlist_get_size(linearlist));
+				//printf("%d\n", sz(linearlist));
 				break;
 			case 'c':
 				//printf("%d\n", linearlist_get_size(linearlist));
